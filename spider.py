@@ -22,7 +22,7 @@ wait = WebDriverWait(browser, 10)
 def search():
     print('正在搜索...')
     try:
-        brow  ser.get('https://www.taobao.com')
+        browser.get('https://www.taobao.com')
         # 搜索框
         input = wait.until(
             EC.presence_of_element_located((By.CSS_SELECTOR, '#q'))
