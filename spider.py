@@ -6,6 +6,11 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from pyquery import PyQuery as pq
 from config import *
+from pymongo import MongoClient
+
+client = MongoClient('localhost', PORT)
+db = client.taobao
+collection = db.meishi
 
 # 浏览器对象
 browser = webdriver.PhantomJS(
@@ -90,6 +95,7 @@ def get_products():
             'location': item.find('.location').text()
         }
         print(product)
+        collection.insert(product)
 
 
 def main():

@@ -2,3 +2,4 @@
 SERVICE_ARGS = ['--load-images=false', '--disk-cache=true']  # 此处指不加载图片，生成缓存
 
 KEYWORD = '美食'
+PORT = 27017
