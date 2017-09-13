@@ -8,8 +8,11 @@ from pyquery import PyQuery as pq
 from config import *
 from pymongo import MongoClient
 
+# 创建MongoDB数据库连接
 client = MongoClient('localhost', PORT)
+# 创建taobao数据库
 db = client.taobao
+# 创建meishi集合
 collection = db.meishi
 
 # 浏览器对象
@@ -95,6 +98,7 @@ def get_products():
             'location': item.find('.location').text()
         }
         print(product)
+        # 将数据写入MongoDB
         collection.insert(product)
 
 
